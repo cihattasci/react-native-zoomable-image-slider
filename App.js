@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     height: 300,
   },
   modal: {
-    bottom: -height * 0.15,
+    bottom: Platform.OS === 'ios' ? -height * 0.25 : -height * 0.15,
     justifyContent: 'flex-end',
     margin: 0,
   },
