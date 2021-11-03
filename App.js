@@ -37,7 +37,7 @@ export default function App() {
     'https://picsum.photos/200/300?grayscale',
     'https://picsum.photos/200/300/?blur',
   ];
-
+  const colors = ['red', 'yellow', 'green', 'black', 'blue'];
   const [index, setIndex] = useState(0);
   const [modal, setModal] = useState(false);
   const [image, setImage] = useState(imageArray[0]);
@@ -65,15 +65,22 @@ export default function App() {
         minimumZoomScale={1.0}
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
-        onScrollEndDrag={e => console.log(e._dispatchInstances.onTouchStart)}
+        //onScrollEndDrag={e => console.log(e._dispatchInstances.onTouchStart)}
         style={{overflow: 'hidden', height: 300}}>
         {imageArray.map((item, index) => {
           return (
-            <Image
-              source={{uri: item}}
-              resizeMode={'contain'}
-              style={{width: 390, height: 300}}
-            />
+            <View
+              style={{
+                backgroundColor: colors[index],
+                minWidth: 400,
+                maxHeight: 340,
+              }}>
+              <Image
+                source={{uri: item}}
+                resizeMode={'contain'}
+                style={{width: 390, height: 300}}
+              />
+            </View>
           );
         })}
       </ScrollView>
